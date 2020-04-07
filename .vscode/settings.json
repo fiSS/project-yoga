@@ -1,0 +1,31 @@
+{
+    "window.ZoomLevel": 3,
+"workbench.activityBar.visible": true,
+"workbench.statusBar.visible": true,
+"workbench.colorTheme": "Oceanic Next",
+"LiveServer.settings.donotShowInfoMsg": true,
+"editor.minimap.enabled": false,
+"editor.multiCursorModifier": "ctrlCmd",
+"explorer.confirmDelete": false,
+"editor.formatOnPaste": false,
+"editor.detectIdentation": false,
+"javascript.updateImportsOnFileMove.enable": "always",
+"explorer.confirmDragAndDrop": false,
+"[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+},
+"workbench.iconthem": "vscode-icons",
+"liveSassCompile.settings.formats":[
+    {
+        "format": "compressed",
+        "extensionName": ".min.css",
+        "savePath": "~/../css/"
+    }
+],
+"liveSassCompile.settings.autoprefix": [
+    "> 1%",
+    "last 2 versions"
+],
+"git.ignoreLimitWarning": true
+
+}
