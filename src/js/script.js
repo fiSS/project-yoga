@@ -39,13 +39,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //timer
 
-    let deadline = '2020-04-12';
+    let deadline = '2020-04-15';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
         seconds = Math.floor((t/1000) % 60),
         minutes = Math.floor((t/1000/60) % 60),
-        hours = Math.floor((t/(1000*60*60))),
+        hours = Math.floor((t/(1000*60*60) % 24)),
         days = Math.floor((t/(1000*60*60*24)));
 
         return {
@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', function() {
             seconds = timer.querySelector('.seconds'),
             minutes = timer.querySelector('.minutes'),
             hours = timer.querySelector('.hours'),
-            days = timer.querySelector('days'),
+            days = timer.querySelector('.days'),
             timeInterval = setInterval(updateClock, 1000);
             
     
@@ -76,15 +76,15 @@ window.addEventListener('DOMContentLoaded', function() {
                 if (num <= 9) {
                     return "0" + num;
                 } else return num;
-            };
+            }
             
             
             hours.textContent = addZero(t.hours);
             minutes.textContent = addZero(t.minutes);
             seconds.textContent = addZero(t.seconds);
-            // days.textContent = addZero(t.days);
+            days.textContent = addZero(t.days);
 
-                    
+         //чтобы не уходило в минус           
         if(t.total <= 0) {
             clearInterval(timeInterval);
             hours.textContent = "00";
@@ -95,4 +95,22 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 }
     setClock('timer', deadline);
+
+    //modal
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    more.addEventListener('click', function() {
+        overlay.style.display = "block";
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden'; //блокирует скролл при открытом окне
+    });
+
+    close.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        more.classList.remove('more-splash');
+        document.body.style.overflow = '';
+    });
 });
